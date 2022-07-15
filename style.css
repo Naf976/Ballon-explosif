@@ -1,0 +1,33 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    background-color: rgb(110, 103, 103);
+}
+main{
+    margin: 0 auto;
+    margin-top: 50px;
+    width: 500px;
+    text-align: center;
+}
+div{
+    width: 350px;
+    height: 500px;
+    background-color: brown;
+    border-radius: 50%;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    color: white;
+
+}
+p{
+    color: white;
+}
+button{
+    padding: 15px 30px;
+    background-color: aquamarine;
+}
+.bravo{
+    width: 350px;
+    font-size: 3em;
+}

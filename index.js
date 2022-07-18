@@ -16,5 +16,6 @@ bouton.addEventListener("click", function gonfler() {
     bravo.innerHTML = "Bravo !!!!";
     document.getElementById("conteneur").appendChild(bravo);
     bravo.classList.add("bravo");
+    ballon.style.display = "none";
   }
 });

@@ -14,7 +14,7 @@ main{
     width: 500px;
     height: 600px;
 }
-div{
+div#ballon{
     width: 350px;
     height: 500px;
     background-color: brown;
@@ -27,9 +27,24 @@ div{
 p{
     color: white;
 }
-button{
+.action{
+    display: flex;
+    justify-content: center;
+    height: 50px;
+    overflow: hidden;
+    align-items: center;
+}
+.btn{
     padding: 15px 30px;
     background-color: aquamarine;
+}
+img{
+    display: none;
+    width: 30px;
+    height: 30px;
+    margin-left: 30px;
+    background-color: #fff;
+    padding: 5px;
 }
 .bravo{
     width: 350px;

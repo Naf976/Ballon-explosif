@@ -4,54 +4,43 @@ let ballonWidth = 350;
 let refresh = document.querySelector("img");
 ballon.style.width = "350px";
 
+if (ballonWidth < 500) {
+  gonfler()
+};
 
-if(ballonWidth < 500){
-   bouton.addEventListener("click", function gonfler() {
-  ballonWidth += 20;
-  ballon.style.width = ballonWidth + "px";
-  ballon.style.transition = "0.5s";
-  refresh.style.display = "none";
+// Function qui permet de gonfler le ballon lorsque l'on appuie sur le bouton "gonfler"
+function gonfler() {
+  bouton.addEventListener("click", function gonflage() {
+    ballonWidth += 20;
+    ballon.style.width = ballonWidth + "px";
+    ballon.style.transition = "0.5s";
+    refresh.style.display = "none";
 
-  if (ballonWidth > 500) {
-    ballon.style.width = "0px";
-    ballon.style.transition = "0s";
-    let bravo = document.createElement("p");
-    bravo.innerHTML = "BOOMM !!!";
-    document.getElementById("conteneur").appendChild(bravo);
-    bravo.classList.add("bravo");
-    ballon.style.display = "none";
-    bouton.removeEventListener("click", gonfler);
-    bouton.style.backgroundColor = "#a0a0a0";
-    refresh.style.display = "block"
-  }
-})};
-let gonfler = function(){
-    
-}
-refresh.addEventListener("click", ()=>{
+    // Les actions quand le ballon éclate
+    if (ballonWidth > 500) {
+      ballon.style.width = "0px";
+      ballon.style.transition = "0s";
+      let bravo = document.createElement("p");
+      bravo.innerHTML = "BOOMM !!!";
+      document.getElementById("conteneur").appendChild(bravo);
+      bravo.classList.add("bravo");
+      ballon.style.display = "none";
+      bouton.removeEventListener("click", gonflage);
+      bouton.style.backgroundColor = "#a0a0a0";
+      refresh.style.display = "block"
+    }
+  })
+};
+
+// Permet de recommmencer lorsqu'on appuie sur le bouton refresh
+refresh.addEventListener("click", () => {
   ballonWidth = 350;
   ballon.style.width = ballonWidth + "px";
   ballon.style.display = "block";
-document.querySelector(".bravo").remove();
-bouton.style.backgroundColor ="#7fffd4";
-bouton.addEventListener("click", function gonfler() {
-  ballonWidth += 20;
-  ballon.style.width = ballonWidth + "px";
-  ballon.style.transition = "0.5s";
-  refresh.style.display = "none";
+  document.querySelector(".bravo").remove();
+  bouton.style.backgroundColor = "#7fffd4";
 
-  if (ballonWidth > 500) {
-    ballon.style.width = "0px";
-    ballon.style.transition = "0s";
-    let bravo = document.createElement("p");
-    bravo.innerHTML = "BOOMM !!!";
-    document.getElementById("conteneur").appendChild(bravo);
-    bravo.classList.add("bravo");
-    ballon.style.display = "none";
-    bouton.removeEventListener("click", gonfler);
-    bouton.style.backgroundColor = "#a0a0a0";
-    refresh.style.display = "block"
+  if (ballonWidth < 500) {
+    gonfler();
   }
-})
-})
-console.log(bouton);
+});

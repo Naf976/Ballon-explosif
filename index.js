@@ -14,7 +14,7 @@ function gonfler() {
     ballonWidth += 20;
     ballon.style.width = ballonWidth + "px";
     ballon.style.transition = "0.5s";
-    refresh.style.display = "none";
+
 
     // Les actions quand le ballon éclate
     if (ballonWidth > 500) {
@@ -27,20 +27,25 @@ function gonfler() {
       ballon.style.display = "none";
       bouton.removeEventListener("click", gonflage);
       bouton.style.backgroundColor = "#a0a0a0";
-      refresh.style.display = "block"
+      refresh.style.backgroundColor = "#fff";
+
+      refresh.addEventListener("click", function initialiser() {
+        ballonWidth = 350;
+        ballon.style.width = ballonWidth + "px";
+        ballon.style.display = "block";
+        document.querySelector(".bravo").remove();
+        bouton.style.backgroundColor = "#7fffd4";
+        refresh.removeEventListener("click", initialiser);
+        refresh.style.backgroundColor = "#a0a0a0";
+      
+        if (ballonWidth < 500) {
+          gonfler();
+        }
+      });
+      
     }
   })
 };
 
 // Permet de recommmencer lorsqu'on appuie sur le bouton refresh
-refresh.addEventListener("click", () => {
-  ballonWidth = 350;
-  ballon.style.width = ballonWidth + "px";
-  ballon.style.display = "block";
-  document.querySelector(".bravo").remove();
-  bouton.style.backgroundColor = "#7fffd4";
 
-  if (ballonWidth < 500) {
-    gonfler();
-  }
-});

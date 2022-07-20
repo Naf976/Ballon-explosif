@@ -16,17 +16,17 @@ function gonfler() {
     ballonWidth += 20;
     ballon.style.width = ballonWidth + "px";
     ballon.style.transition = "0.5s";
+
     if (ballonWidth < 495) {
       let gonflement = new Audio("son/gonflement.mp3");
       gonflement.play();
+      animationBtn();
     }
 
 
 
     // Les actions quand le ballon éclate
     if (ballonWidth > 500) {
-      ballon.style.width = "0px";
-      ballon.style.transition = "0s";
       ballon.style.display = "none";
       bouton.removeEventListener("click", gonflage);
       bouton.style.backgroundColor = "#a0a0a0";
@@ -36,12 +36,15 @@ function gonfler() {
       flash.style.display = "block";
       setTimeout(()=>{flash.style.display = "none"}, 50);
       document.querySelector(".regles").innerHTML = "Ah dommage il a éclaté !!";
+      bouton.addEventListener("mouseover", ()=>{bouton.style.backgroundColor = "#a0a0a0"});
+      bouton.addEventListener("mouseleave", ()=>{bouton.style.backgroundColor = "#a0a0a0"});
 
       refresh.addEventListener("click", function initialiser() {
         ballonWidth = 350;
         ballon.style.width = ballonWidth + "px";
         ballon.style.display = "block";
-        bouton.style.backgroundColor = "#7fffd4";
+        bouton.style.backgroundColor = "#67b398";
+        animationBtn();
         refresh.removeEventListener("click", initialiser);
         refresh.style.backgroundColor = "#a0a0a0";
         flash.style.display = "none";
@@ -55,6 +58,10 @@ function gonfler() {
     }
   })
 };
+function animationBtn(){
+  bouton.addEventListener("mouseover", function hover(){bouton.style.backgroundColor = "#b6ffe8"});
+  bouton.addEventListener("mouseleave", ()=>{bouton.style.backgroundColor = "#67b398"});
+}
 
 // Permet de recommmencer lorsqu'on appuie sur le bouton refresh
 

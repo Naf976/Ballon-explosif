@@ -2,52 +2,79 @@
     box-sizing: border-box;
 }
 body{
-    background-color: rgb(110, 103, 103);
+    background-color: rgb(211, 211, 211);
+    font-family: sans-serif;
 }
 main{
     margin: 0 auto;
     margin-top: 50px;
-    width: 500px;
+    width: 600px;
     text-align: center;
+    background-color: rgb(158, 186, 211);
+    border-radius: 100px;
+    box-shadow: 5px 5px 20px rgb(23, 55, 92);
 }
 #conteneur{
+    margin: 0 auto;
     width: 500px;
-    height: 600px;
+    height: 550px;
+    padding-top: 30px;
 }
 div#ballon{
     width: 350px;
     height: 500px;
-    background-color: brown;
+    background: linear-gradient(to top left, rgb(167, 60, 10), rgb(255, 90, 14), rgb(255, 111, 45), white);
     border-radius: 50%;
     margin: 0 auto;
-    margin-bottom: 50px;
     color: white;
+    box-shadow: 1px 1px 5px rgb(56, 56, 56);
 
 }
+@keyframes boom{
+    from{
+        transform: scale(1,1);
+    }
+    to{
+        transform: scale(0,0);
+    }
+}
+.flash{
+    width: 500px;
+    display: none;
+    animation: boom 0.06s;
+}
 p{
-    color: white;
+    color: #120e1a;
 }
 .action{
     display: flex;
     justify-content: center;
-    height: 50px;
+    height: 100px;
     overflow: hidden;
     align-items: center;
+    padding-bottom: 30px;
 }
 .btn{
     padding: 15px 30px;
-    background-color: #7fffd4;
+    background-color: #67b398;
+    border: none;
 }
-img{
+.btn:hover{
+    background-color: #b6ffe8;
+    transition: 0.3s;
+}
+.refresh{
     width: 30px;
     height: 30px;
     margin-left: 30px;
     background-color: #a0a0a0;
     padding: 5px;
+    border-radius: 50%;
 }
 .bravo{
     width: 350px;
     font-size: 3em;
     padding-top: 300px;
+    margin: auto;
     
 }
